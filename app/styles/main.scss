@@ -1,0 +1,195 @@
+$icon-font-path: '../fonts/';
+// bower:scss
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.mdl-card {
+    width: auto !important;
+}
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+* {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/* Space out content a bit */
+
+body {
+    padding-bottom: 20px;
+    .create-account {
+        margin-top: 20px;
+    }
+    .create-event {
+        margin-top: 20px;
+        .hz-btn-holder {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            .submitBtn {
+                margin-right: 10px;
+            }
+        }
+        .event-loc {
+            align-items: center;
+            display: flex;
+            justify-content: space-around;
+            input {
+                flex-grow: 1;
+            }
+            .location {
+                width: 30px;
+                height: 28px;
+                cursor: pointer;
+                flex-grow: 0.05;
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMnB4IiBoZWlnaHQ9IjUxMnB4Ij4KPHBhdGggc3R5bGU9ImZpbGw6I0ZGNjQ2OTsiIGQ9Ik0yNTYsMGMtNTIuNjM2LDAtMTEyLjgxNCw4MS43NTQtMTEyLjgxNCwxODIuMjM3YzAsMTI5LjgzMSwxMDUuNjczLDMxOC44OTgsMTA5LjQzMywzMjYuODkgIGMwLjg2MSwxLjgzMSwyLjA5LDIuODcyLDMuMzgsMi44NzJjMi40NjIsMCw0LjgxLTEuMDQyLDYuNDUzLTIuODcyYzcuMTc4LTcuOTkyLDE3NS43ODQtMTk3LjA1OSwxNzUuNzg0LTMyNi44OSAgQzQzOC4yMzcsODEuNzU0LDM1Ni40ODgsMCwyNTYsMHogTTI1NiwyNzcuNjk1Yy01Mi43MiwwLTk1LjQ1OC00Mi43MzctOTUuNDU4LTk1LjQ1OFMyMDMuMjgsODYuNzgsMjU2LDg2Ljc4ICBzOTUuNDU4LDQyLjczNyw5NS40NTgsOTUuNDU4UzMwOC43MiwyNzcuNjk1LDI1NiwyNzcuNjk1eiIvPgo8cGF0aCBzdHlsZT0iZmlsbDojRDI1NTVGOyIgZD0iTTI1Mi42Miw1MDkuMTI4Yy0zLjc2MS03Ljk5Mi0xMDkuNDMzLTE5Ny4wNTktMTA5LjQzMy0zMjYuODlDMTQzLjE4Niw4MS43NTQsMjAzLjM2NCwwLDI1NiwwICBDMTU1LjUxMiwwLDczLjc2Myw4MS43NTQsNzMuNzYzLDE4Mi4yMzdjMCwxMjkuODMxLDE2OC42MDYsMzE4Ljg5OCwxNzUuNzg0LDMyNi44OWMxLjY0NCwxLjgzMSwzLjk5MiwyLjg3Miw2LjQ1MywyLjg3MiAgQzI1NC43MSw1MTIsMjUzLjQ4MSw1MTAuOTU4LDI1Mi42Miw1MDkuMTI4eiIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K)
+            }
+        }
+    }
+    form {
+        padding: 4%;
+        >div {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            label {
+                margin-right: 20px;
+            }
+            span[id^='error-'] {
+                visibility: hidden;
+                color: #fff;
+                font-size: 10px;
+                background: red;
+                padding-left: 10px;
+                margin-top: 5px;
+                border-radius: 3px;
+                position: relative;
+                line-height: 1.5;
+                padding: 5px 8px;
+                &:before {
+                    content: '';
+                    visibility: inherit;
+                    position: absolute;
+                    border: 4px solid red;
+                    border-top-color: transparent;
+                    border-left-color: transparent;
+                    border-right-color: transparent;
+                    left: 5px;
+                    top: -7px;
+                }
+            }
+        }
+    }
+    input {
+        border: 2px solid #afafaf;
+        background: none;
+        outline: none;
+        padding: 5px 10px;
+        transition: all 0.2s;
+        &:focus {
+            background-color: #f7f7f7;
+            flex-grow: 1;
+        }
+    }
+}
+
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+
+.header,
+.marketing,
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+/* Custom page header */
+
+.header {
+    border-bottom: 1px solid #e5e5e5;
+    /* Make the masthead heading the same height as the navigation */
+    h3 {
+        margin-top: 0;
+        margin-bottom: 0;
+        line-height: 40px;
+        padding-bottom: 19px;
+    }
+}
+
+
+/* Custom page footer */
+
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+
+/* Main marketing message and sign up button */
+
+.jumbotron {
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+    .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+    }
+}
+
+
+/* Supporting marketing content */
+
+.marketing {
+    margin: 40px 0;
+    p + h4 {
+        margin-top: 28px;
+    }
+}
+
+
+/* Responsive: Portrait tablets and up */
+
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 30px;
+    }
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+    }
+}

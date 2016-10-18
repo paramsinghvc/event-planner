@@ -1,0 +1,181 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Event Planner</title>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+</head>
+
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title"></span>
+                <div class="mdl-layout-spacer"></div>
+                <nav class="mdl-navigation mdl-layout--large-screen-only">
+                    <a class="mdl-navigation__link" href="">Events</a>
+                    <a class="mdl-navigation__link" href="">Create</a>
+                    <a class="mdl-navigation__link" href="">Register</a>
+                </nav>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Event Planner</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="">Events</a>
+                <a class="mdl-navigation__link" href="">Create</a>
+                <a class="mdl-navigation__link" href="">Register</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="page-content container" id="container">
+                <div class="create-account">
+                    <div class="mdl-card mdl-shadow--4dp">
+                        <div class="mdl-card__title">
+                            Create Account
+                        </div>
+                        <div>
+                            <form id="signupForm" method="post">
+                                <div>
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" autocomplete="name" name="name" required>
+                                    <span id="error-name"></span>
+                                </div>
+                                <div>
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" autocomplete="email" placeholder="name@example.com" name="email">
+                                    <span id="error-email"></span>
+                                </div>
+                                <div>
+                                    <label for="password">Password</label>
+                                    <input type="password" id="password" autocomplete="new-password" name="password">
+                                    <span id="error-password"></span>
+                                </div>
+                                <div>
+                                    <label for="cpassword">Confirm Password</label>
+                                    <input type="password" id="cpassword" autocomplete="new-password" name="cpassword">
+                                    <span id="error-cpassword"></span>
+                                </div>
+                                <div>
+                                    <label for="jobtitle">Job Title</label>
+                                    <input type="text" id="jobtitle" autocomplete="organization" name="job_title">
+                                    <span id="error-job_title"></span>
+                                </div>
+                                <div>
+                                    <label for="phone">Phone</label>
+                                    <input type="tel" id="phone" autocomplete="tel" name="phone" />
+                                    <span id="error-phone"></span>
+                                </div>
+                                <div>
+                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit" id="submitBtn">
+                                        Submit
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="create-event">
+                    <div class="mdl-card mdl-shadow--4dp">
+                        <div class="mdl-card__title">
+                            Create Event
+                        </div>
+                        <div>
+                            <form id="eventForm" method="post"> 
+                                <div>
+                                    <label for="event_name">Event Name</label>
+                                    <input type="text" id="event_name" name="event_name" required>
+                                    <span id="error-event_name"></span>
+                                </div>
+                                <div>
+                                    <!-- <label for="event_type">Event Type</label> -->
+                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                                        <input type="radio" id="option-1" class="mdl-radio__button" name="event_type" value="1" checked>
+                                        <span class="mdl-radio__label">Bday Party</span>
+                                    </label>
+                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                                        <input type="radio" id="option-2" class="mdl-radio__button" name="event_type" value="2">
+                                        <span class="mdl-radio__label">Confrence Talk</span>
+                                    </label>
+                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+                                        <input type="radio" id="option-3" class="mdl-radio__button" name="event_type" value="3">
+                                        <span class="mdl-radio__label">Wedding</span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label for="event_host">Event Host</label>
+                                    <input type="event_host" id="event_host" name="event_host">
+                                    <span id="error-event_host"></span>
+                                </div>
+                                <div>
+                                    <label for="event_start_time">Start Time</label>
+                                    <input type="datetime-local" id="event_start_time" name="event_start_time">
+                                    <span id="error-event_start_time"></span>
+                                </div>
+                                <div>
+                                    <label for="event_end_time">End Time</label>
+                                    <input type="datetime-local" id="event_end_time" name="event_end_time">
+                                    <span id="error-event_end_time"></span>
+                                </div>
+                                <div>
+                                    <label for="event_location">Location</label>
+                                    <div class="event-loc">
+                                        <input type="text" id="event_location" name="event_location">
+                                        <div class="location" id="event-geo-location"></div>
+                                    </div>
+                                    <span id="error-event_location"></span>
+                                </div>
+                                <div>
+                                    <label for="event_additional_info">Additional Info</label>
+                                    <textarea rows="6" name="event_additional_info" id="event_additional_info"></textarea>
+                                    <span id="error-event_additional_info"></span>
+                                </div>
+                                <div class="hz-btn-holder">
+                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored submitBtn" type="submit">
+                                        Submit
+                                    </button>
+                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="reset" >
+                                        Reset
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="events">
+                    
+                </div>
+            </div>
+        </main>
+        <div id="snackbar-holder" class="mdl-js-snackbar mdl-snackbar">
+            <div class="mdl-snackbar__text"></div>
+            <button class="mdl-snackbar__action" type="button"></button>
+        </div>
+    </div>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAvbMxEF7LqquPc3I5bdyvS6yROjp64ICE",
+        authDomain: "event-planner-e8dac.firebaseapp.com",
+        databaseURL: "https://event-planner-e8dac.firebaseio.com",
+        storageBucket: "event-planner-e8dac.appspot.com",
+        messagingSenderId: "157863410472"
+    };
+    firebase.initializeApp(config);
+    </script>
+    <script src="scripts/Api.js"></script>
+    <script src="scripts/Forms.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVvrgkABuzhotkZehHMFQtHR2MfFpWd98&libraries=places&callback=initMap" async defer></script>
+</body>
+
+</html>
