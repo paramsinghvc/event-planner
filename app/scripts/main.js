@@ -8,13 +8,15 @@ document.getElementById('signupForm').addEventListener('submit', function(e) {
     }
 })
 
-window.addEventListener('DOMContentLoaded', function(){
+// window.addEventListener('DOMContentLoaded', function() {
 
-Api.fetchEvents().then((snapshot) => {
-    console.log(snapshot);
-    for (let eventId in snapshot) {
-        let e = snapshot[eventId];
-        contt.innerHTML += (`
+document.getElementById('events-tab').addEventListener('click', function() {
+
+        Api.fetchEvents().then((snapshot) => {
+            console.log(snapshot);
+            for (let eventId in snapshot) {
+                let e = snapshot[eventId];
+                contt.innerHTML += (`
     		<div class="demo-card-wide mdl-card mdl-shadow--2dp">
                 <div class="mdl-card__title">
                     <h2 class="mdl-card__title-text">${e.event_name}</h2>
@@ -22,15 +24,17 @@ Api.fetchEvents().then((snapshot) => {
                 <div class="mdl-card__supporting-text">
                     <p>Host : ${e.event_host}</p>
                     <p>Event Type : ${e.event_type}</p>
+                    <p>Guest List: ${e.event_guest_list}</p>
                     <p>Start Time: ${(new Date(e.event_start_time)).toLocaleString()}</p>
                     <p>End Time: ${(new Date(e.event_end_time)).toLocaleString()}</p>
                     <p>Location : ${e.event_location}</p>
                 </div>
             </div>
     		`)
-    }
-});
-})
+            }
+        });
+    })
+    // })
 
 document.getElementById('eventForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -45,7 +49,7 @@ let locEl = document.getElementById('event_location');
 var autocomplete;
 
 function initMap() {
-console.log('here');
+    console.log('here');
     autocomplete = new google.maps.places.Autocomplete(locEl);
     google.maps.event.addDomListener(locEl, 'keydown', function(e) {
         if (e.keyCode == 13 && $('.pac-container:visible').length) {
