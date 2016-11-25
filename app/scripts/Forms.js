@@ -127,13 +127,13 @@ window.Forms = (function(window, document) {
                             this.errors[prop] = '';
                         break;
                     case 'job_title':
-                        if (!/\w+/.test(data[prop]))
+                        if (data[prop] && !/\w+/.test(data[prop]))
                             this.errors[prop] = 'Please enter a valid job title';
                         else
                             this.errors[prop] = '';
                         break;
                     case 'phone':
-                        if (!/^\+?[\-\d]{10,15}$/.test(data[prop]))
+                        if (data[prop] && !/^\+?[\-\d]{10,15}$/.test(data[prop]))
                             this.errors[prop] = 'Please enter a valid phone number';
                         else
                             this.errors[prop] = '';
@@ -149,7 +149,7 @@ window.Forms = (function(window, document) {
     function EventForm() {
         this.form = document.getElementById('eventForm');
         this.errors = {}
-        let fields = ['event_name', 'event_start_time', 'event_end_time'];
+        let fields = ['event_name', 'event_host', 'event_start_time', 'event_end_time'];
         let self = this;
         fields.forEach(f => {
             self.form[f].addEventListener('keyup', function() {
@@ -161,15 +161,25 @@ window.Forms = (function(window, document) {
                             this.setCustomValidity('');
                         }
                         break;
+                    case 'event_host':
+                    console.log('dsfds');
+                        if (this.validity.valueMissing) {
+                            this.setCustomValidity('This field is required');
+                        } else {
+                            this.setCustomValidity('');
+                        }
+                        break;
                     case 'event_start_time':
                         if (new Date(self.form[f].value) < new Date()) {
                             this.setCustomValidity('Please enter a valid future date');
+                        } else if (self.form['event_end_time'] && (new Date(self.form[f].value) >= new Date(self.form['event_end_time'].value))) {
+                            this.setCustomValidity('End Date cannot be lesser than Start Date');
                         } else {
                             this.setCustomValidity('');
                         }
                         break;
                     case 'event_end_time':
-                        if (new Date(self.form[f].value) < new Date(self.form['event_start_time'].value)) {
+                        if (new Date(self.form[f].value) <= new Date(self.form['event_start_time'].value)) {
                             this.setCustomValidity('End Date cannot be lesser than Start Date');
                         } else {
                             this.setCustomValidity('');

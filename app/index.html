@@ -21,8 +21,8 @@
             </div>
             <!-- Tabs -->
             <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-                <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Register</a>
-                <a href="#fixed-tab-2" class="mdl-layout__tab">Create</a>
+                <a href="#fixed-tab-1" class="mdl-layout__tab is-active" onclick="focusEl('name')">Register</a>
+                <a href="#fixed-tab-2" class="mdl-layout__tab" onclick="focusEl('event_name')">Create</a>
                 <a href="#fixed-tab-3" class="mdl-layout__tab" id="events-tab">Events</a>
             </div>
         </header>
@@ -100,23 +100,18 @@
                                         <span id="error-event_name"></span>
                                     </div>
                                     <div>
-                                        <label for="event_type">Event Type</label>
-                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-                                            <input type="radio" id="option-1" class="mdl-radio__button" name="event_type" value="1" checked>
-                                            <span class="mdl-radio__label">Bday Party</span>
+                                        <label>Event Type
+                                            <input list="event_type" name="event_type" required />
                                         </label>
-                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-                                            <input type="radio" id="option-2" class="mdl-radio__button" name="event_type" value="2">
-                                            <span class="mdl-radio__label">Confrence Talk</span>
-                                        </label>
-                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
-                                            <input type="radio" id="option-3" class="mdl-radio__button" name="event_type" value="3">
-                                            <span class="mdl-radio__label">Wedding</span>
-                                        </label>
+                                        <datalist id="event_type">
+                                            <option value="Wedding">
+                                            <option value="Bday Party">
+                                            <option value="Anniversary">
+                                        </datalist>
                                     </div>
                                     <div>
                                         <label for="event_host">Event Host</label>
-                                        <input type="event_host" id="event_host" name="event_host">
+                                        <input type="event_host" id="event_host" name="event_host" required>
                                         <span id="error-event_host"></span>
                                     </div>
                                     <div>
@@ -166,7 +161,7 @@
                     <div id="events">
                     </div>
                 </div>
-            </section>            
+            </section>
         </main>
         <div id="snackbar-holder" class="mdl-js-snackbar mdl-snackbar">
             <div class="mdl-snackbar__text"></div>

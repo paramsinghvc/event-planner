@@ -8,6 +8,12 @@ document.getElementById('signupForm').addEventListener('submit', function(e) {
     }
 })
 
+function focusEl(name) {
+    setTimeout(function() {
+        document.getElementById(name).focus();
+    });
+
+}
 // window.addEventListener('DOMContentLoaded', function() {
 
 document.getElementById('events-tab').addEventListener('click', function() {
@@ -17,7 +23,7 @@ document.getElementById('events-tab').addEventListener('click', function() {
             for (let eventId in snapshot) {
                 let e = snapshot[eventId];
                 contt.innerHTML += (`
-    		<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+            <div class="demo-card-wide mdl-card mdl-shadow--2dp">
                 <div class="mdl-card__title">
                     <h2 class="mdl-card__title-text">${e.event_name}</h2>
                 </div>
@@ -30,7 +36,7 @@ document.getElementById('events-tab').addEventListener('click', function() {
                     <p>Location : ${e.event_location}</p>
                 </div>
             </div>
-    		`)
+            `)
             }
         });
     })

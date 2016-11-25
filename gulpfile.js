@@ -5,6 +5,7 @@ const browserSync = require('browser-sync');
 const del = require('del');
 const wiredep = require('wiredep').stream;
 const runSequence = require('run-sequence');
+var minify = require('gulp-minifier');
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -117,9 +118,16 @@ gulp.task('serve', () => {
     });
 });
 
-gulp.task('build:prod', () => {
-  return gulp.src('.tmp/**/*')
-          .pipe(gulp.dest('dist'));
+gulp.task('build:prod', ['build'],  () => {
+    return gulp.src('.tmp/**/*')
+        .pipe(minify({
+            minify: true,
+            collapseWhitespace: true,
+            conservativeCollapse: true,
+            minifyJS: true,
+            minifyCSS: true,
+        }))
+        .pipe(gulp.dest('dist'));
 });
 
 gulp.task('serve:dist', ['build:prod'], () => {
@@ -128,7 +136,7 @@ gulp.task('serve:dist', ['build:prod'], () => {
         port: 9000,
         server: {
             baseDir: ['dist', 'app'],
-             routes: {
+            routes: {
                 '/scripts': 'dist/scripts',
                 '/bower_components': 'bower_components'
             }
