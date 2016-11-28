@@ -30,8 +30,19 @@ gulp.task('scripts', () => {
         .pipe($.plumber())
         .pipe($.sourcemaps.init())
         .pipe($.babel())
-        .pipe($.sourcemaps.write('.'))
+        .pipe($.concat('bundle.js'))
+        .pipe($.sourcemaps.write('.'))        
         .pipe(gulp.dest('.tmp/scripts'))
+        .pipe(reload({ stream: true }));
+});
+
+gulp.task('scripts:concat', () => {
+    return gulp.src('app/scripts/**/*.js')
+        .pipe($.plumber())
+        .pipe($.babel())        
+        .pipe($.concat('bundle.js'))
+        .pipe($.uglify())
+        .pipe(gulp.dest('dist/scripts'))
         .pipe(reload({ stream: true }));
 });
 
@@ -59,7 +70,7 @@ gulp.task('lint:test', () => {
         .pipe(gulp.dest('test/spec'));
 });
 
-gulp.task('html', ['styles', 'scripts'], () => {
+gulp.task('html', ['styles', 'scripts', 'scripts:concat'], () => {
     return gulp.src('app/*.html')
         .pipe($.useref({ searchPath: ['.tmp', 'app', '.'] }))
         .pipe($.if('*.js', $.uglify()))

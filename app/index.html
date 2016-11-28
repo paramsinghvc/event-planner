@@ -116,23 +116,23 @@
                                     </div>
                                     <div>
                                         <label for="event_guest_list">Guest List</label>
-                                        <textarea id="event_guest_list" name="event_guest_list" rows="6"></textarea>
+                                        <textarea id="event_guest_list" name="event_guest_list" rows="6" required></textarea>
                                         <span id="error-event_guest_list"></span>
                                     </div>
                                     <div>
                                         <label for="event_start_time">Start Time</label>
-                                        <input type="datetime-local" id="event_start_time" name="event_start_time">
+                                        <input type="datetime-local" id="event_start_time" name="event_start_time" required>
                                         <span id="error-event_start_time"></span>
                                     </div>
                                     <div>
                                         <label for="event_end_time">End Time</label>
-                                        <input type="datetime-local" id="event_end_time" name="event_end_time">
+                                        <input type="datetime-local" id="event_end_time" name="event_end_time" required>
                                         <span id="error-event_end_time"></span>
                                     </div>
                                     <div>
                                         <label for="event_location">Location</label>
                                         <div class="event-loc">
-                                            <input type="text" id="event_location" name="event_location">
+                                            <input type="text" id="event_location" name="event_location" required>
                                             <div class="location" id="event-geo-location"></div>
                                         </div>
                                         <span id="error-event_location"></span>
@@ -181,9 +181,10 @@
     };
     firebase.initializeApp(config);
     </script>
-    <script src="scripts/Api.js"></script>
+    <!-- <script src="scripts/Api.js"></script>
     <script src="scripts/Forms.js"></script>
-    <script src="scripts/main.js"></script>
+    <script src="scripts/main.js"></script> -->
+    <script src="scripts/bundle.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVvrgkABuzhotkZehHMFQtHR2MfFpWd98&libraries=places&callback=initMap" async defer></script>
 </body>
 
